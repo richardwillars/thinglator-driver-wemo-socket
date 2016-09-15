@@ -2,7 +2,6 @@
 
 var Wemo = require('wemo-client');
 var wemo = new Wemo();
-var _ = require('underscore');
 
 var activeDevices = [];
 var deviceCache = {};
