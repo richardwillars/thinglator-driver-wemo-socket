@@ -13,3 +13,6 @@ Navigate to the root of your Homebox installation and run
 
 Relaunch homebox by re-running
 > node app.js
+
+## Test
+> npm run test

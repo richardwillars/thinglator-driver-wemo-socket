@@ -19,7 +19,7 @@
   "name": "homebox-driver-wemo-switch",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/richardwillars/homebox-driver-wemo-switch.git"
+    "url": "https://github.com/richardwillars/homebox-driver-wemo-switch.git"
   },
   "version": "0.0.1",
   "scripts": {
