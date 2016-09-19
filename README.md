@@ -1,17 +1,17 @@
-#homebox-driver-wemo-switch
+#devlator-driver-wemo-switch
 
-Allows the Homebox platform to control Wemo switches on your local network.
+Allows the Devlator platform to control Wemo switches on your local network.
 
 
 ## Requirements
 - node.js
-- Homebox - https://github.com/richardwillars/homebox
+- Devlator - https://github.com/richardwillars/devlator
 
 ## Installation
-Navigate to the root of your Homebox installation and run
-> npm install homebox-driver-wemo-switch
+Navigate to the root of your Devlator installation and run
+> npm install devlator-driver-wemo-switch
 
-Relaunch homebox by re-running
+Relaunch devlator by re-running
 > node app.js
 
 ## Test
