@@ -1,6 +1,6 @@
 {
   "bugs": {
-    "url": "https://github.com/richardwillars/homebox-driver-wemo-switch/issues"
+    "url": "https://github.com/richardwillars/devlator-driver-wemo-switch/issues"
   },
   "dependencies": {
     "wemo-client": "^0.9.0",
@@ -8,7 +8,7 @@
     "mocha": "^3.0.2"
   },
   "description": "Allows the Homebox platform to talk to wemo switches",
-  "homepage": "https://github.com/richardwillars/homebox-driver-wemo-switch#readme",
+  "homepage": "https://github.com/richardwillars/devlator-driver-wemo-switch#readme",
   "license": "MIT",
   "maintainers": [
     {
@@ -16,10 +16,10 @@
       "name": "Richard Willars"
     }
   ],
-  "name": "homebox-driver-wemo-switch",
+  "name": "devlator-driver-wemo-switch",
   "repository": {
     "type": "git",
-    "url": "https://github.com/richardwillars/homebox-driver-wemo-switch.git"
+    "url": "https://github.com/richardwillars/devlator-driver-wemo-switch.git"
   },
   "version": "0.0.1",
   "scripts": {
