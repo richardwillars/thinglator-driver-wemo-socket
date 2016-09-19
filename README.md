@@ -1,17 +1,17 @@
-#devlator-driver-wemo-switch
+#thinglator-driver-wemo-switch
 
-Allows the Devlator platform to control Wemo switches on your local network.
+Allows the Thinglator platform to control Wemo switches on your local network.
 
 
 ## Requirements
 - node.js
-- Devlator - https://github.com/richardwillars/devlator
+- Thinglator - https://github.com/richardwillars/thinglator
 
 ## Installation
-Navigate to the root of your Devlator installation and run
-> npm install devlator-driver-wemo-switch
+Navigate to the root of your Thinglator installation and run
+> npm install thinglator-driver-wemo-switch
 
-Relaunch devlator by re-running
+Relaunch thinglator by re-running
 > node app.js
 
 ## Test
