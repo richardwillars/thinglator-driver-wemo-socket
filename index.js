@@ -132,7 +132,7 @@ class WemoSwitchDriver {
 			var wemoSwitchInstance = wemo.client(device.specs.additionalInfo);
 			wemoSwitchInstance.setBinaryState(0);
 			resolve({
-				off: true
+				on: false
 			});
 		});
 	}
