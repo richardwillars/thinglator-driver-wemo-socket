@@ -31,13 +31,17 @@ class WemoSwitchDriver {
 		this.eventEmitter = eventEmitter;
 	}
 
+	getEventEmitter() {
+		return this.eventEmitter;
+	}
+
 	initDevices(devices) {
 		var self = this;
-		
+
 		//To listen for events from the switches the wemo library requires that we initialise each switch as a class and attach an event listener to it
 
 		//remove existing event listeners
-		for(var i in deviceCache) {
+		for (var i in deviceCache) {
 			deviceCache[i].removeListener('binaryState', eventCallbackFunctionInstances[i]);
 		}
 
@@ -48,35 +52,38 @@ class WemoSwitchDriver {
 		var cbUrl = wemo.getCallbackURL();
 
 		//loop through the devices and initialise them
-		for(var i in devices) {
+		for (var i in devices) {
 			//update the callback url
 			devices[i].specs.additionalInfo.callbackURL = cbUrl;
 
-		 	deviceCache[devices[i]._id] = wemo.client(devices[i].specs.additionalInfo);
+			deviceCache[devices[i]._id] = wemo.client(devices[i].specs.additionalInfo);
 
-		 	//create a scope so we can pass params to our event listener callback within a loop
-		 	(function () {
-		 		eventCallbackFunctionInstances[devices[i]._id] = function(value) {
-		 			//as soon as we setup the event listener this event will fire. We want to ignore this initial event..
-		 			if(typeof eventsFired[devices[i]._id] === "undefined") {
-		 				eventsFired[devices[i]._id] = true;
-		 				return;
-		 			}
-
-					if(value==='1') {
-						self.eventEmitter.emit('on','wemo-switch',devices[i]._id);
+			//create a scope so we can pass params to our event listener callback within a loop
+			(function() {
+				eventCallbackFunctionInstances[devices[i]._id] = function(value) {
+					//as soon as we setup the event listener this event will fire. We want to ignore this initial event..
+					if (typeof eventsFired[devices[i]._id] === "undefined") {
+						eventsFired[devices[i]._id] = true;
+						return;
 					}
-					else {
-						self.eventEmitter.emit('off','wemo-switch',devices[i]._id);
+
+					if (value === '1') {
+						self.eventEmitter.emit('on', 'wemo-switch', devices[i]._id, {
+							on: true
+						});
+					} else {
+						self.eventEmitter.emit('on', 'wemo-switch', devices[i]._id, {
+							on: false
+						});
 					}
 				}
 
 				deviceCache[devices[i]._id].on('binaryState', eventCallbackFunctionInstances[devices[i]._id]);
 
 				deviceCache[devices[i]._id].on('error', function(err) {
-					if((err.code==='EHOSTUNREACH') || (err.code==='ECONNREFUSED') || (err.code==='ETIMEDOUT')) {
+					if ((err.code === 'EHOSTUNREACH') || (err.code === 'ECONNREFUSED') || (err.code === 'ETIMEDOUT')) {
 						activeDevices = _(activeDevices).filter(function(item) {
-						    return item.additionalInfo.host !== err.address;
+							return item.additionalInfo.host !== err.address;
 						});
 					}
 				});
@@ -84,7 +91,7 @@ class WemoSwitchDriver {
 		}
 	}
 
-	
+
 
 	getAuthenticationProcess() {
 		return [];
@@ -92,14 +99,13 @@ class WemoSwitchDriver {
 
 	discover() {
 		return new Promise(function(resolve) {
-
 			//the wemo-client library is event driven. Setup a listener that gets fired whenever a new device is discovered
-			wemo.discover(function(info,foo) {
-			  	if(info.modelName !== 'Socket') {
-			  		return;
-			  	}
+			wemo.discover(function(info) {
+				if (info.modelName !== 'Socket') {
+					return;
+				}
 
-			  	var device = {
+				var device = {
 					deviceId: info.serialNumber,
 					name: info.friendlyName,
 					address: info.callbackURL,
@@ -112,8 +118,8 @@ class WemoSwitchDriver {
 				activeDevices.push(device);
 			});
 			setTimeout(function() {
-			  resolve(activeDevices);
-			}, 8000);			
+				resolve(activeDevices);
+			}, 8000);
 		});
 	}
 
