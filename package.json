@@ -1,26 +1,42 @@
 {
-  "bugs": {
-    "url": "https://github.com/richardwillars/thinglator-driver-wemo-switch/issues"
-  },
-  "dependencies": {
-    "wemo-client": "^0.9.0",
-    "chai": "^3.5.0",
-    "mocha": "^3.0.2"
-  },
-  "description": "Allows the Homebox platform to talk to wemo switches",
-  "homepage": "https://github.com/richardwillars/thinglator-driver-wemo-switch#readme",
+  "name": "thinglator-driver-wemo-socket",
   "license": "MIT",
-  "maintainers": [{
-    "email": "richard@richardwillars.com",
-    "name": "Richard Willars"
-  }],
-  "name": "thinglator-driver-wemo-switch",
+  "description": "Allows the Thinglator platform to talk to Wemo sockets",
+  "version": "0.0.2",
+  "maintainers": [
+    {
+      "name": "Richard Willars",
+      "email": "richard@richardwillars.com"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/richardwillars/thinglator-driver-wemo-switch.git"
+    "url": "https://github.com/richardwillars/thinglator-driver-wemo-socket.git"
   },
-  "version": "0.0.2",
+  "dependencies": {
+    "wemo-client": "^0.13.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "mockery": "^1.7.0",
+    "sinon": "^1.17.5",
+    "sinon-chai": "^2.8.0",
+    "eslint-plugin-react": "^6.10.3",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3"
+  },
+  "peerDependencies": {
+    "thinglator": "0.x"
+  },
   "scripts": {
-    "test": "node_modules/.bin/_mocha --recursive"
+    "test": "npm run lint && node_modules/.bin/_mocha --recursive",
+    "test:watch": "node_modules/.bin/_mocha --recursive --watch",
+    "lint": "eslint --ext js ."
+  },
+  "engines": {
+    "node": ">=6.10.0"
   }
 }
