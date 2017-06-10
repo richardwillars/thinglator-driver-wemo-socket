@@ -10,16 +10,18 @@
   "description": "Allows the Homebox platform to talk to wemo switches",
   "homepage": "https://github.com/richardwillars/thinglator-driver-wemo-switch#readme",
   "license": "MIT",
-  "maintainers": [{
-    "email": "richard@richardwillars.com",
-    "name": "Richard Willars"
-  }],
+  "maintainers": [
+    {
+      "email": "richard@richardwillars.com",
+      "name": "Richard Willars"
+    }
+  ],
   "name": "thinglator-driver-wemo-switch",
   "repository": {
     "type": "git",
     "url": "https://github.com/richardwillars/thinglator-driver-wemo-switch.git"
   },
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "test": "node_modules/.bin/_mocha --recursive"
   }
