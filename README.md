@@ -15,4 +15,4 @@ Relaunch thinglator by re-running
 > node app.js
 
 ## Test
-> npm run test
+> npm run test 
