@@ -1,6 +1,6 @@
-#thinglator-driver-wemo-switch
+#thinglator-driver-wemo-socket
 
-Allows the Thinglator platform to control Wemo switches on your local network.
+Allows the Thinglator platform to control Wemo sockets on your local network.
 
 
 ## Requirements
@@ -9,7 +9,7 @@ Allows the Thinglator platform to control Wemo switches on your local network.
 
 ## Installation
 Navigate to the root of your Thinglator installation and run
-> npm install thinglator-driver-wemo-switch
+> npm install thinglator-driver-wemo-socket
 
 Relaunch thinglator by re-running
 > node app.js
