@@ -19,7 +19,11 @@ class WemoSocketDriver {
         return this.driverSettingsObj.get().then((settings) => {
             this.driverSettings = settings;
 
-            this.wemo.discover((info) => {
+            this.wemo.discover((err, info) => {
+                if(err) {
+                    return;
+                }
+
                 if (info.modelName !== 'Socket') {
                     return;
                 }
@@ -76,7 +80,7 @@ class WemoSocketDriver {
 
         // loop through the devices and initialise them
         devices.forEach((device) => {
-            const newDevice = Object.assign({}, device);
+            const newDevice = Object.assign(device, {});
             // update the callback url
             newDevice.specs.additionalInfo.callbackURL = cbUrl;
 
