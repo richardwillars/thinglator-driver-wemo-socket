@@ -2,7 +2,7 @@
   "name": "thinglator-driver-wemo-socket",
   "license": "MIT",
   "description": "Allows the Thinglator platform to talk to Wemo sockets",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "maintainers": [
     {
       "name": "Richard Willars",
