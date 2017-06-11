@@ -20,7 +20,7 @@ class WemoSocketDriver {
             this.driverSettings = settings;
 
             this.wemo.discover((err, info) => {
-                if(err) {
+                if (err) {
                     return;
                 }
 
